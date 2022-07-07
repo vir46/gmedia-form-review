@@ -22,6 +22,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/buefy', ssr: true },
+    { src: '~/plugins/fontawesome', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -30,15 +32,16 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     'nuxt-vite',
-    // 'postcss-preset-env',
   ],
-  
+
   vite: {
-    build: true
+    build: true,
+    hot: true,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
