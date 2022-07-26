@@ -95,7 +95,7 @@ export default {
       if (this.NameData.length === 0) {
         return [];
       }
-      return this.NameData.map(item => item.full_name).filter(item => item.toLowerCase().indexOf(this.yourname.toLowerCase()) > -1);
+      return this.NameData.map(item => item.email).filter(item => item.toLowerCase().indexOf(this.yourname.toLowerCase()) > -1);
     },
     yourname_validity(){
       return this.selected_yourname != null
@@ -108,7 +108,7 @@ export default {
           return false;
         }
         let name = item;
-        let selected_id = this.karyawandata.find(item => item.full_name == name).id;
+        let selected_id = this.karyawandata.find(item => item.email == name).id;
         await this.getreviews(selected_id);
         await this.getkaryawancompetence(selected_id);
         await this.getaverages();
@@ -165,7 +165,7 @@ export default {
         .then(response => {
           this.NameData = response.data.map(item => {
             return {
-              full_name: item.full_name
+              email: item.email
             }
           });
           this.karyawandata = response.data;
